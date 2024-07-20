@@ -48,14 +48,10 @@ def create_interactive_pie_charts(df, num_bins=10):
         )
 
         # Create bins
-        bins = np.arange(
-            min_val,
-            max_val + (max_val - min_val) / num_bins,
-            (max_val - min_val) / num_bins,
-        )
+        bins = np.linspace(min_val, max_val, num_bins + 1)
 
         # Group values into bins
-        binned_data = pd.cut(feature, bins, right=False)
+        binned_data = pd.cut(feature, bins, right=True, include_lowest=True)
 
         # Count the number of values in each bin
         bin_counts = binned_data.value_counts(sort=False).reset_index()
