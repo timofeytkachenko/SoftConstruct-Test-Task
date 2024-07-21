@@ -160,7 +160,9 @@ class Med_couple:
 
         find_index = medcouple_index - Ltotal
 
-        k_minimum_element = remaining[np.argpartition(remaining, find_index)]  # K-element algothrm
+        k_minimum_element = remaining[
+            np.argpartition(remaining, find_index)
+        ]  # K-element algothrm
 
         return k_minimum_element[find_index]
 
@@ -175,11 +177,15 @@ def detection_outlier(n, df):
         outlier_step = 1.5 * IQR
         medcouple = Med_couple(np.array(df[col])).kth_pair_algorithm()
         if medcouple >= 0:
-            outlier_list_col = df[(df[col] < Q1 - outlier_step * math.exp(-3.5 * medcouple)) | (
-                        df[col] > Q3 + outlier_step * math.exp(4 * medcouple))].index
+            outlier_list_col = df[
+                (df[col] < Q1 - outlier_step * math.exp(-3.5 * medcouple))
+                | (df[col] > Q3 + outlier_step * math.exp(4 * medcouple))
+            ].index
         else:
-            outlier_list_col = df[(df[col] < Q1 - outlier_step * math.exp(-4 * medcouple)) | (
-                        df[col] > Q3 + outlier_step * math.exp(3.5 * medcouple))].index
+            outlier_list_col = df[
+                (df[col] < Q1 - outlier_step * math.exp(-4 * medcouple))
+                | (df[col] > Q3 + outlier_step * math.exp(3.5 * medcouple))
+            ].index
         outlier_indices.extend(outlier_list_col)
     outlier_indices = Counter(outlier_indices)
     multiple_outliers = list(k for k, v in outlier_indices.items() if v > n)
