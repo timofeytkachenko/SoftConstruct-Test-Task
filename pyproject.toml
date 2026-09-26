@@ -1,0 +1,18 @@
+[project]
+name = "softconstruct-test-task"
+version = "0.1.0"
+requires-python = ">=3.13"
+dependencies = [
+    "jupyter>=1.1.1",
+    "numpy>=2.5.3",
+    "optuna>=5.0.0",
+    "pandas>=3.0.6",
+    "plotly>=7.1.0",
+    "pyod>=3.6.6",
+    "scikit-learn>=1.9.1",
+    "seaborn>=0.13.2",
+    "setuptools>=84.0.0",
+    "umap-learn>=0.5.12",
+    "weightedstats>=0.4.1",
+    "yellowbrick>=1.5",
+]
