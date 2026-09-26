@@ -16,3 +16,8 @@ dependencies = [
     "weightedstats>=0.4.1",
     "yellowbrick>=1.5",
 ]
+
+[dependency-groups]
+dev = [
+    "ruff>=0.16.9",
+]

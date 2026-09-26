@@ -128,7 +128,6 @@ class Med_couple:
         medcouple_index = math.floor(Rtotal / 2)
 
         while Rtotal - Ltotal > self.p:
-
             middle_idx = [i for i in range(self.p) if L[i] <= R[i]]
             row_medians = [self.H(i, math.floor((L[i] + R[i]) / 2)) for i in middle_idx]
 
