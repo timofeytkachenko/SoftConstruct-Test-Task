@@ -210,14 +210,15 @@ def main() -> None:
     parser.add_argument("--data", type=Path, default=Path("customer_data_test.csv"))
     parser.add_argument("--output", type=Path, default=Path("umap_3d_clusters.html"))
     parser.add_argument("--contamination", type=float, default=0.05)
+    # Best PCA/KMeans parameters from the Optuna grid search in test_task.ipynb
     parser.add_argument("--n-components", type=_n_components, default=0.8)
     parser.add_argument("--n-clusters", type=int, default=4)
-    parser.add_argument("--n-init", type=int, default=10)
-    parser.add_argument("--max-iter", type=int, default=1000)
+    parser.add_argument("--n-init", type=int, default=20)
+    parser.add_argument("--max-iter", type=int, default=300)
     parser.add_argument("--random-state", type=int, default=42)
-    # Best 3D UMAP parameters from the Optuna search in test_task.ipynb
+    # Best 3D UMAP parameters (k-DBCV) from the Optuna search in test_task.ipynb
     parser.add_argument("--n-neighbors", type=int, default=180)
-    parser.add_argument("--min-dist", type=float, default=0.5)
+    parser.add_argument("--min-dist", type=float, default=0.6)
     parser.add_argument(
         "--umap-random-state",
         type=int,
